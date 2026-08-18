@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ProMentor | Professional Mentoring</title>
+
+<style>
+
+/* =========================================================
+   PRO MENTOR THEME
+========================================================= */
+
+:root {
+    --navy: #111827;
+    --navy-2: #1e293b;
+
+    --purple: #6d28d9;
+    --purple-light: #8b5cf6;
+    --purple-soft: #ede9fe;
+
+    --blue: #2563eb;
+    --green: #16a34a;
+
+    --white: #ffffff;
+    --background: #f5f7fb;
+    --card: #ffffff;
+
+    --text: #172033;
+    --text-soft: #6b7280;
+
+    --border: #e5e7eb;
+
+    --user-message: linear-gradient(
+        135deg,
+        #6d28d9,
+        #8b5cf6
+    );
+
+    --radius: 16px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN APPLICATION
+========================================================= */
+
+.app {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+}
+
+
+/* =========================================================
+   LEFT SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: 270px;
+
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827 0%,
+            #172033 100%
+        );
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 4px 8px 28px;
+}
+
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #6d28d9
+        );
+
+    box-shadow:
+        0 8px 20px rgba(109,40,217,0.35);
+}
+
+
+.logo-text h1 {
+    font-size: 18px;
+
+    letter-spacing: 0.5px;
+}
+
+
+.logo-text p {
+    font-size: 10px;
+
+    color: #aeb8c8;
+
+    margin-top: 3px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* Sidebar menu */
+
+.menu-title {
+    font-size: 10px;
+
+    color: #8d99aa;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    padding: 0 10px 10px;
+}
+
+
+.menu {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.menu-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 13px;
+
+    border-radius: 10px;
+
+    color: #cbd5e1;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.menu-item:hover {
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+}
+
+
+.menu-item.active {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(109,40,217,0.9),
+            rgba(109,40,217,0.55)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(109,40,217,0.18);
+}
+
+
+.menu-icon {
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+
+/* Sidebar bottom */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+
+/* Mentor profile card */
+
+.mentor-card {
+    padding: 15px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+
+.mentor-title {
+    font-size: 10px;
+
+    color: #9ca8b9;
+
+    margin-bottom: 10px;
+}
+
+
+.mentor-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.mentor-avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #4f46e5
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.mentor-name {
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.mentor-status {
+    font-size: 10px;
+
+    color: #86efac;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+    height: 70px;
+
+    background: white;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    flex-shrink: 0;
+}
+
+
+.page-title h2 {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.page-title p {
+    font-size: 11px;
+
+    color: var(--text-soft);
+
+    margin-top: 3px;
+}
+
+
+.status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+
+    font-size: 11px;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #22c55e;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CHAT CONTENT
+========================================================= */
+
+.chat-wrapper {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   WELCOME PANEL
+========================================================= */
+
+.welcome-panel {
+    padding: 24px 30px 14px;
+
+    background: white;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.welcome-inner {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.welcome-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.welcome-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ede9fe,
+            #ddd6fe
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+
+.welcome-title h2 {
+    font-size: 19px;
+}
+
+
+.welcome-title p {
+    font-size: 12px;
+
+    color: var(--text-soft);
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-actions {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 18px;
+
+    overflow-x: auto;
+
+    padding-bottom: 3px;
+}
+
+
+.quick-btn {
+    flex-shrink: 0;
+
+    border: 1px solid var(--border);
+
+    background: #fafafa;
+
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+
+    color: #4b5563;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.quick-btn:hover {
+    border-color: #c4b5fd;
+
+    background: var(--purple-soft);
+
+    color: var(--purple);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CHAT SCROLL
+========================================================= */
+
+.chat-scroll {
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 24px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(139,92,246,0.06),
+            transparent 35%
+        ),
+        #f8fafc;
+}
+
+
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   MESSAGE ROW
+========================================================= */
+
+.msg-row {
+    display: flex;
+
+    gap: 10px;
+
+    max-width: 900px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    animation: messageIn 0.25s ease;
+}
+
+
+@keyframes messageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+.msg-row.user {
+    justify-content: flex-end;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatar {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d28d9,
+            #8b5cf6
+        );
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BUBBLE
+========================================================= */
+
+.bubble {
+    max-width: 70%;
+
+    padding: 12px 15px;
+
+    border-radius: 15px;
+
+    font-size: 13.5px;
+
+    line-height: 1.55;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+}
+
+
+/* Bot */
+
+.msg-row.bot .bubble {
+    background: white;
+
+    color: var(--text);
+
+    border:
+        1px solid var(--border);
+
+    border-bottom-left-radius: 4px;
+
+    box-shadow:
+        0 3px 12px rgba(15,23,42,0.04);
+}
+
+
+/* User */
+
+.msg-row.user .bubble {
+    background: var(--user-message);
+
+    color: white;
+
+    border-bottom-right-radius: 4px;
+
+    box-shadow:
+        0 6px 18px rgba(109,40,217,0.22);
+}
+
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+.typing {
+    display: inline-flex;
+
+    gap: 4px;
+
+    align-items: center;
+}
+
+
+.typing span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #8b5cf6;
+
+    animation: typing 1.2s infinite;
+}
+
+
+.typing span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+
+.typing span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+
+@keyframes typing {
+
+    0%,60%,100% {
+        opacity: .3;
+
+        transform:
+            translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   INPUT AREA
+========================================================= */
+
+.input-section {
+    padding: 15px 30px 18px;
+
+    background: white;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.input-container {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+}
+
+
+#userInput {
+    flex: 1;
+
+    resize: none;
+
+    min-height: 46px;
+
+    max-height: 120px;
+
+    border:
+        1px solid #d9dee7;
+
+    border-radius: 13px;
+
+    padding: 12px 14px;
+
+    font-family: inherit;
+
+    font-size: 13.5px;
+
+    color: var(--text);
+
+    background: #f9fafb;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+#userInput::placeholder {
+    color: #9ca3af;
+}
+
+
+#userInput:focus {
+    background: white;
+
+    border-color:
+        var(--purple-light);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(139,92,246,0.10);
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+#sendBtn {
+    width: 46px;
+    height: 46px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d28d9,
+            #8b5cf6
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 16px rgba(109,40,217,0.25);
+
+    transition: 0.2s;
+}
+
+
+#sendBtn:hover:not(:disabled) {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(109,40,217,0.32);
+}
+
+
+#sendBtn:active:not(:disabled) {
+    transform:
+        scale(.94);
+}
+
+
+#sendBtn:disabled {
+    opacity: .45;
+
+    cursor: not-allowed;
+}
+
+
+#sendBtn svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+========================================================= */
+
+.disclaimer {
+    text-align: center;
+
+    font-size: 9.5px;
+
+    color: #9ca3af;
+
+    padding-top: 7px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 750px) {
+
+    body {
+        overflow: hidden;
+    }
+
+
+    .sidebar {
+        display: none;
+    }
+
+
+    .topbar {
+        padding: 0 16px;
+
+        height: 62px;
+    }
+
+
+    .welcome-panel {
+        padding: 18px 16px 12px;
+    }
+
+
+    .welcome-title h2 {
+        font-size: 17px;
+    }
+
+
+    .quick-actions {
+        margin-top: 13px;
+    }
+
+
+    .chat-scroll {
+        padding:
+            18px 14px;
+    }
+
+
+    .input-section {
+        padding:
+            12px 14px 14px;
+    }
+
+
+    .bubble {
+        max-width: 82%;
+
+        font-size: 13px;
+    }
+
+}
+
+
+@media(max-width: 430px) {
+
+    .welcome-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 19px;
+    }
+
+
+    .welcome-title p {
+        font-size: 10px;
+    }
+
+
+    .status {
+        padding: 6px 8px;
+    }
+
+
+    .bubble {
+        max-width: 87%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     APPLICATION
+========================================================= -->
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                PM
+            </div>
+
+            <div class="logo-text">
+
+                <h1>ProMentor</h1>
+
+                <p>Professional Growth</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <div class="menu-title">
+            Mentoring
+        </div>
+
+
+        <div class="menu">
+
+            <div class="menu-item active">
+
+                <span class="menu-icon">
+                    💬
+                </span>
+
+                <span>
+                    Mentor Chat
+                </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+                <span class="menu-icon">
+                    🎯
+                </span>
+
+                <span>
+                    Career Goals
+                </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+                <span class="menu-icon">
+                    📈
+                </span>
+
+                <span>
+                    Skill Development
+                </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+                <span class="menu-icon">
+                    📄
+                </span>
+
+                <span>
+                    Resume Guidance
+                </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+                <span class="menu-icon">
+                    🎤
+                </span>
+
+                <span>
+                    Interview Preparation
+                </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+                <span class="menu-icon">
+                    🗺️
+                </span>
+
+                <span>
+                    Career Roadmap
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="mentor-card">
+
+                <div class="mentor-title">
+                    YOUR AI MENTOR
+                </div>
+
+
+                <div class="mentor-profile">
+
+                    <div class="mentor-avatar">
+                        PM
+                    </div>
+
+
+                    <div>
+
+                        <div class="mentor-name">
+                            mentor_assistent
+                        </div>
+
+                        <div class="mentor-status">
+                            ● Available to help
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="page-title">
+
+                <h2>
+                    Professional Mentor
+                </h2>
+
+                <p>
+                    Your personal career development assistant
+                </p>
+
+            </div>
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Mentor Online
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CHAT
+        ================================================== -->
+
+        <section class="chat-wrapper">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-panel">
+
+                <div class="welcome-inner">
+
+
+                    <div class="welcome-title">
+
+                        <div class="welcome-icon">
+                            🎓
+                        </div>
+
+
+                        <div>
+
+                            <h2>
+                                Let's grow your career
+                            </h2>
+
+                            <p>
+                                Ask me anything about your
+                                professional journey.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="quick-actions">
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="sendMessage('Give me career guidance')"
+                        >
+                            🎯 Career Guidance
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="sendMessage('Help me prepare for an interview')"
+                        >
+                            🎤 Interview Prep
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="sendMessage('How can I improve my professional skills?')"
+                        >
+                            📈 Improve Skills
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="sendMessage('Help me improve my resume')"
+                        >
+                            📄 Resume Help
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="sendMessage('Create a career roadmap for me')"
+                        >
+                            🗺️ Career Roadmap
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT MESSAGES -->
+
+            <div
+                class="chat-scroll"
+                id="chatScroll"
+            >
+
+
+                <!-- INITIAL MESSAGE -->
+
+                <div class="msg-row bot">
+
+
+                    <div class="avatar">
+                        PM
+                    </div>
+
+
+                    <div class="bubble">
+
+                        Welcome to <strong>ProMentor</strong>! 👋
+
+                        <br><br>
+
+                        I'm
+                        <strong>mentor_assistent</strong>,
+                        your professional mentoring assistant.
+
+                        <br><br>
+
+                        I can help you with career planning,
+                        skill development, interviews,
+                        resumes, professional growth,
+                        and career roadmaps.
+
+                        <br><br>
+
+                        What would you like to work on today?
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 INPUT
+            ================================================== -->
+
+            <div class="input-section">
+
+
+                <div class="input-container">
+
+
+                    <textarea
+                        id="userInput"
+                        rows="1"
+                        placeholder="Ask your mentor about your career..."
+                    ></textarea>
+
+
+                    <button
+                        id="sendBtn"
+                        aria-label="Send message"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <line
+                                x1="22"
+                                y1="2"
+                                x2="11"
+                                y2="13"
+                            ></line>
+
+                            <polygon
+                                points="
+                                22 2
+                                15 22
+                                11 13
+                                2 9
+                                22 2
+                                "
+                            ></polygon>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <div class="disclaimer">
+
+                    ProMentor AI can make mistakes.
+                    Verify important career decisions with a professional mentor.
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const chatScroll =
+    document.getElementById("chatScroll");
+
+const userInput =
+    document.getElementById("userInput");
+
+const sendBtn =
+    document.getElementById("sendBtn");
+
+
+/* =========================================================
+   CHAT HISTORY
+========================================================= */
+
+let history = [];
+
+let isSending = false;
+
+
+/* =========================================================
+   SCROLL TO BOTTOM
+========================================================= */
+
+function scrollToBottom() {
+
+    chatScroll.scrollTop =
+        chatScroll.scrollHeight;
+
+}
+
+
+/* =========================================================
+   ADD MESSAGE
+========================================================= */
+
+function addMessage(
+    role,
+    text,
+    isError = false
+) {
+
+    const row =
+        document.createElement("div");
+
+
+    row.className =
+        "msg-row " +
+        (role === "user"
+            ? "user"
+            : "bot");
+
+
+    if (isError) {
+
+        row.classList.add("error");
+
+    }
+
+
+    /* Bot avatar */
+
+    if (role !== "user") {
+
+        const avatar =
+            document.createElement("div");
+
+        avatar.className =
+            "avatar";
+
+        avatar.textContent =
+            "PM";
+
+        row.appendChild(avatar);
+
+    }
+
+
+    /* Bubble */
+
+    const bubble =
+        document.createElement("div");
+
+    bubble.className =
+        "bubble";
+
+    bubble.textContent =
+        text;
+
+    row.appendChild(bubble);
+
+
+    chatScroll.appendChild(row);
+
+
+    scrollToBottom();
+
+
+    return bubble;
+
+}
+
+
+/* =========================================================
+   TYPING INDICATOR
+========================================================= */
+
+function addTypingIndicator() {
+
+    const row =
+        document.createElement("div");
+
+    row.className =
+        "msg-row bot";
+
+    row.id =
+        "typingRow";
+
+
+    const avatar =
+        document.createElement("div");
+
+    avatar.className =
+        "avatar";
+
+    avatar.textContent =
+        "PM";
+
+    row.appendChild(avatar);
+
+
+    const bubble =
+        document.createElement("div");
+
+    bubble.className =
+        "bubble";
+
+
+    bubble.innerHTML = `
+        <span class="typing">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    `;
+
+
+    row.appendChild(bubble);
+
+    chatScroll.appendChild(row);
+
+    scrollToBottom();
+
+}
+
+
+/* =========================================================
+   REMOVE TYPING
+========================================================= */
+
+function removeTypingIndicator() {
+
+    const row =
+        document.getElementById(
+            "typingRow"
+        );
+
+
+    if (row) {
+
+        row.remove();
+
+    }
+
+}
+
+
+/* =========================================================
+   TEXTAREA AUTO RESIZE
+========================================================= */
+
+function autoResize() {
+
+    userInput.style.height =
+        "auto";
+
+
+    userInput.style.height =
+        Math.min(
+            userInput.scrollHeight,
+            120
+        ) + "px";
+
+}
+
+
+/* =========================================================
+   SEND MESSAGE
+========================================================= */
+
+async function sendMessage(text) {
+
+
+    const message =
+        (
+            text !== undefined
+                ? text
+                : userInput.value
+        ).trim();
+
+
+    if (
+        !message ||
+        isSending
+    ) {
+
+        return;
+
+    }
+
+
+    isSending = true;
+
+    sendBtn.disabled = true;
+
+
+    /* Add user message */
+
+    addMessage(
+        "user",
+        message
+    );
+
+
+    userInput.value = "";
+
+    autoResize();
+
+
+    /* Typing */
+
+    addTypingIndicator();
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "/api/chat",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            message:
+                                message,
+
+                            history:
+                                history
+
+                        })
+
+                }
+            );
+
+
+        const data =
+            await response
+                .json()
+                .catch(
+                    () => ({})
+                );
+
+
+        removeTypingIndicator();
+
+
+        /* Error */
+
+        if (!response.ok) {
+
+
+            const errorText =
+                data.error ||
+                "Something went wrong. Please try again.";
+
+
+            addMessage(
+                "bot",
+                errorText,
+                true
+            );
+
+
+            isSending = false;
+
+            sendBtn.disabled = false;
+
+            return;
+
+        }
+
+
+        /* AI response */
+
+        const reply =
+            data.reply ||
+            "Sorry, I didn't get a response.";
+
+
+        addMessage(
+            "bot",
+            reply
+        );
+
+
+        /* Update history */
+
+        history.push({
+
+            role: "user",
+
+            content: message
+
+        });
+
+
+        history.push({
+
+            role: "assistant",
+
+            content: reply
+
+        });
+
+
+        /* Limit history */
+
+        if (history.length > 20) {
+
+            history =
+                history.slice(
+                    history.length - 20
+                );
+
+        }
+
+
+    }
+    catch (error) {
+
+
+        removeTypingIndicator();
+
+
+        addMessage(
+            "bot",
+            "Network error — could not reach mentor_assistent. Please check your connection and try again.",
+            true
+        );
+
+    }
+
+
+    isSending = false;
+
+    sendBtn.disabled = false;
+
+    userInput.focus();
+
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+sendBtn.addEventListener(
+    "click",
+    () => sendMessage()
+);
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+userInput.addEventListener(
+    "keydown",
+    function(e) {
+
+        if (
+            e.key === "Enter" &&
+            !e.shiftKey
+        ) {
+
+            e.preventDefault();
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+userInput.addEventListener(
+    "input",
+    autoResize
+);
+
+
+/* =========================================================
+   INITIAL FOCUS
+========================================================= */
+
+userInput.focus();
+
+</script>
+
+</body>
+</html>
+```
